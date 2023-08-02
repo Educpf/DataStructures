@@ -184,3 +184,56 @@ void Reverse(struct Node* n){
 }
 ```
 
+---
+# Doubly linked lists
+
+- Really similar to the Linked lists already studied, actually called **Singly Linked List**. In this new variant, each **Node**, instead of being connected to only the **next Node** is also connected directly to the **previous Node**.
+
+The declaration of a Node of a Doubly Linked List would be:
+
+``` C++
+struct Node{
+  int data;
+  struct Node* next;
+  struct Node* prev;
+
+```
+
+## Advantages
+
+- With only a pointer we can access all items of the list. 
+- The implementation of some actions, like deleting an element, becomes easier
+
+## Disavantages
+
+- Extra memory for pointer to previous node
+- More prone to errors
+
+## Implementations
+
+Considering **head** as a global variable that points to the first Node of the List
+
+
+Considering the following function a tool to create new Nodes with a specific value:
+``` C++
+struct Node* GetNewNode(int x){
+  struct Node* newNode = new struct Node;
+  newNode->data = 0;
+  newNode->prev = NULL;
+  newNode->next = NULL;
+  return newNode;
+  }
+```
+
+- **Inserting at the beggining**
+``` C++
+void InsertAtHead(int x){
+  struct Node* newNode = GetNewNode(x);
+
+  if (head != NULL){
+    head->prev = newNode;
+    newNode->next = head;
+  }
+  head = newNode;
+}
+```
