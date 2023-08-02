@@ -13,7 +13,8 @@ We can talk baout **data structures** as:
 - Implementation ex. Arrays
 
 #### ADTs
-- define data and operations, but no Implementation
+- define data and operations, but no Implementation details
+- DataStructure is referenced as a simple mathematic or logical model
 
 **We are going to study**:
 - logical view
@@ -237,3 +238,34 @@ void InsertAtHead(int x){
   head = newNode;
 }
 ```
+
+---
+# Stack
+
+> ## ADT
+
+- Stacks in programming languages as a Data Structure is really similar to the concept of Stack in Real Life
+- Also has the name LIFO Last-In-First-Out
+- Any insertion or removal as to occur from the top of the Stack
+
+- A list with the restriction that insertion and deletion can be performed only from one end, called the top
+
+### Operations
+All Constant Time - O(1)
+- Push
+- Pop
+- Top
+- IsEmpty
+
+### Aplications
+
+- Function Calls/Recursion
+- Undo in an editor
+- Balanced Parentheses
+
+
+> ## Implementation
+
+The implementation of stack can be done using an **Array** or **List**
+
+
