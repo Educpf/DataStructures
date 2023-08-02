@@ -1,35 +1,34 @@
 
-Class one:
--> Data structures are the building blocks of programming.
--> There are a lot of examples in real life where data structures are present and help us a lot 
+
+# Introduction
+- Data structures are the building blocks of programming.
+- There are a lot of examples in real life where data structures are present and help us a lot 
 (dictionary, map, table)
+- Computer work with a lot of different types of data. The way we store the data is important to make the progam or something more efficiently
+- Definition : a way to store and organize data in a computer, so that it can be used eddiciently
 
--> Computer work with a lot of different types of data. The way we store the data is important to make the progam or something more efficiently
+We can talk baout **data structures** as:
 
--> Definition : a way to store and organize data in a computer, so that it can be used eddiciently
-
-We can talk baout data-structures as:
-- Mathematical/logical models or Abstract data types(ADT) ex. list
+- Mathematical/logical models or Abstract data types(**ADT**) (ex. list)
 - Implementation ex. Arrays
 
-ADTs:
-    - define data and operations, but no Implementation
-    We are going to study:
-        - logical view
-        - operations
-        - cost of operations
-        - Implementation
------------------------------------------------------------
-                            Lists
------------------------------------------------------------
-- store a given number of elements of a given data-type
+#### ADTs
+- define data and operations, but no Implementation
+
+**We are going to study**:
+- logical view
+- operations
+- cost of operations
+- Implementation
+
+# Lists
+- Store a given number of elements of a given data-type
 - Write/modify element at a position                         ->> ARRAYS
 - Read element at a position 
-
 - empty list has size 0
 - insert 
 - remove
-- count                                                       ->> ARRAYS? 
+- count ->> Arrays
 - read/modify
 - specify data type
 
