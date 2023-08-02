@@ -20,7 +20,7 @@ We can talk baout **data structures** as:
 - operations
 - cost of operations
 - Implementation
-
+---
 # Lists
 - Store a given number of elements of a given data-type
 - Write/modify element at a position                         ->> ARRAYS
@@ -31,77 +31,83 @@ We can talk baout **data structures** as:
 - count ->> Arrays
 - read/modify
 - specify data type
+---
+## Arrays
 
-    --
-            .Define a really large Arrays
-            .Create a varible end to mark the end of the list, with end = -1 in the beginning
-            .Insert if not said the index always occurs at the end of the list
-            .If insert is maid in the middle of the list, it is required to shift all those that have a bigger index
-            .Remove has a silimar effect
-            .But what is the best max size?? The array can always be totally occupied! We have to create a new array with a 
-        copy of the values of the old one and with a bigger size! But this costs a lot of memory! So create the new array 
-        with double the size
-    
-    -- Analysis of the time cost of the various operations
-        . Access -> constant time O(1)
-        . Insert -> linear time O(n) 
-        . Remove -> linear time  O(n)
-        . Add -> O(n) . worst case.  because is necessary to copy all elements to a new array
+- Create a varible end to mark the end of the list, with end=-1 in the beginning
+- Insert if not said the index always occurs at the end of the list
+- If insert is maid in the middle of the list, it is required to shift all those that have a bigger index
+- Remove has a silimar effect
+- But what is the max size? **The array can always be totally occupied**!
+- We have to create a new array with a copy of the values of the old one and with a bigger size!
+- But this costs a lot of memory! So create the new array 
+with double the size
 
-Conclusion:
-    If the size of the array changes a lot are required a lot of operations
-    A lot of the times the majority of the array will be empty, not memory efficient
+### Analysis of the time cost of operations
 
------------------------------------------------------------
-                            Linked-Lists
------------------------------------------------------------
+- **Access** -> constant time O(1)
+- **Insert** -> linear time O(n) 
+- **Remove** -> linear time  O(n)
+- **Add** -> O(n), **worst case** -- because is necessary to copy all elements to a new array
 
-Memory manager - keeps track of memory that is free or allocated. Every task needs to communicate with it
-Comunication - can be made using a programming language like C++ ex. int x;
+### Conclusion
+- If the size of the array changes a lot is required a lot of operations
+- A lot of the times the majority of the array will be empty, not memory efficient
 
-Again:: The problem with arrays is that sometimes is necessary to add values but there is no available space in the stores space for the array
-    It is necessary to create a new space which is costy, and sometimes the space is not totally used
+---
+## Linked-Lists
 
-The solution is LINKEDLIST!!!!
+### Recap/Concepts
+
+- Memory manager - keeps track of memory that is free or allocated. Every task needs to communicate with it
+- Comunication - can be made using a programming language like C++ ex. int x;
+- **Again**: The problem with arrays is that sometimes is necessary to add values but there is no available space in the stores space for the array
+- It is necessary to create a new space which is costy, and sometimes the space is not totally used
+
+## The solution is LINKEDLIST!!!!
 - The memory is not a large contiguos block
 - The request is made one item at a time. Every item is in a different place in memory, not necessarly contiguous
+#### Blocks
 - In order for this to work is necessary to link somehow those blocks. We need to store extra data in each block.
 - First part of block we save the actually data and in the second part we store the adress of the following block.
 - The final block of the list has a 0 value in the second part.
 
--- C representation:
-    - In C this is possible by creating a struct None  {int data; node* next} 4bytes 4 bytes
+- **C representation** -> In C this is possible by creating a `struct Node {int data; node* next} 4bytes`
 
-- The first node is called the heads and gives us access to the complete list
-- To access the elements we always need to start form the head
+- The first node is called the **Head** and gives us access to the complete list
+- To access the elements we always need to start from the head
 - To add a new node we need to add a new space in memory for that node and connect the last node of the list to the one created
 
--- Analysis of the time cost of the various operations
-        . Access -> linear time O(n)
-        . Insert -> linear time O(n) 
-        . Remove -> liner time O(n)
+### Analysis of the time cost of the various operations
+- **Access** -> linear time O(n)
+- **Insert** -> linear time O(n) 
+- **Remove** -> liner time O(n)
 
 
-        Comparation between Array and linked list
+### Comparation 
 
-    Array:
+#### Array
 
-Accesing: O(1) -> because the data is stored in a contiguous block of memory is possible to calculate the location of a 
-                given value based on its index
-Memory requiremetns: -> Fixed size so a lot of memory is may be unused
-                    -> Memory may not be available as one large block
-Cost of inserting:
-            . At the beginning: O(n) -> it is necessary to shift all the values one space to the right
-            . At the end: O(1) -> if array is not full
-                            O(n) -> if is full
-            . at ith position: O(n) -> necessity to shift the values after the added 
-Cost of deleting: is the same
+- **Accesing**: O(1) -> because the data is stored in a contiguous block of memory is possible to calculate the location of a given value based on its index
 
-Pros:
-    -> Ease of use
+- **Memory requirements**
+  - Fixed size so a lot of memory may be unused
+  - Memory may not be available as one large block
+
+- **Inserting**
+  - **At the beginning** O(n) -> it is necessary to shift all the values one space to the right
+  - **At the end** 
+    - O(1) -> if array is not full
+    - O(n) -> if is full
+  -  **At ith position**: O(n) -> necessity to shift the values after the added 
+
+- **Deleting**: The same
+
+##### Pros
+- Ease of use
 
 
-    Linked list:
+#### Linked list:
 
 acessing: O(n) -> because the data is not stored in a contiguos block of memory its necessar to start in the head node
                 in the worst case is necessary to travers all the elements of the list
