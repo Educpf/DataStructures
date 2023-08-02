@@ -83,10 +83,10 @@ with double the size
 - **Insert** -> linear time O(n) 
 - **Remove** -> liner time O(n)
 
+---
+## Comparation 
 
-### Comparation 
-
-#### Array
+### Array
 
 - **Accesing**: O(1) -> because the data is stored in a contiguous block of memory is possible to calculate the location of a given value based on its index
 
@@ -103,23 +103,26 @@ with double the size
 
 - **Deleting**: The same
 
-##### Pros
+#### Pros
 - Ease of use
 
 
-#### Linked list:
+### Linked list:
 
-acessing: O(n) -> because the data is not stored in a contiguos block of memory its necessar to start in the head node
-                in the worst case is necessary to travers all the elements of the list
-Memory requirements -> No unused memory
-                    -> extra memory for pointer variables
-                    -> memory may be available as multiple small blocks
+- **Acessing**: O(n) -> because the data is not stored in a contiguos block of memory its necessar to start in the head node in the worst case is necessary to travers all the elements of the list
 
-Cost of inserting:
-            . At the beginning: O(1) -> Only necessary to create a new node that points to the previously first node
-            . At the end: O(n) -> necessisty to traverse the list
-            . at ith position: O(n) -> necessity to traverse the list 
-Cost of deleting: is the same
+- **Memory requirements**:
+  - No unused memory
+  - Extra memory for pointer variables
+  - Memory may be available as multiple small blocks
 
-Pros:
-    -> Best when the data type is really large, the space for the pointer variables is not relevant
+- **Inserting**:
+    - At the beginning: O(1) -> Only necessary to create a new node that points to the previously first node
+    - At the end: O(n) -> necessisty to traverse the list
+    - At ith position: O(n) -> necessity to traverse the list 
+
+
+- **Deleting**: The same
+
+#### Pros
+- Best when the data type is really large, the space for the pointer variables is not relevant
