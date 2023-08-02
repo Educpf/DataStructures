@@ -32,7 +32,7 @@ We can talk baout **data structures** as:
 - read/modify
 - specify data type
 ---
-## Arrays
+# Arrays
 
 - Create a varible end to mark the end of the list, with end=-1 in the beginning
 - Insert if not said the index always occurs at the end of the list
@@ -43,19 +43,19 @@ We can talk baout **data structures** as:
 - But this costs a lot of memory! So create the new array 
 with double the size
 
-### Analysis of the time cost of operations
+## Analysis of the time cost of operations
 
 - **Access** -> constant time O(1)
 - **Insert** -> linear time O(n) 
 - **Remove** -> linear time  O(n)
 - **Add** -> O(n), **worst case** -- because is necessary to copy all elements to a new array
 
-### Conclusion
+## Conclusion
 - If the size of the array changes a lot is required a lot of operations
 - A lot of the times the majority of the array will be empty, not memory efficient
 
 ---
-## Linked-Lists
+# Linked-Lists
 
 ### Recap/Concepts
 
@@ -78,7 +78,7 @@ with double the size
 - To access the elements we always need to start from the head
 - To add a new node we need to add a new space in memory for that node and connect the last node of the list to the one created
 
-### Analysis of the time cost of the various operations
+## Analysis of the time cost of the various operations
 - **Access** -> linear time O(n)
 - **Insert** -> linear time O(n) 
 - **Remove** -> liner time O(n)
@@ -126,3 +126,61 @@ with double the size
 
 #### Pros
 - Best when the data type is really large, the space for the pointer variables is not relevant
+
+---
+## Reverse Linked List
+
+There are two aproaches to solve this problem. 
+
+- Iterative solution
+- Recursive solution
+  
+### Iterative
+
+Go to each node and reverse its **next** value. At the end ajust the **head** node to point to the last one.
+
+Its necessary to, while doing the iteration, store the value of the current, previous and next node Since once the connection is broken between Nodes its not possible to go back. 
+After the iteration, the previous variable would be equal to the last Node of the List. Then it just necessary to connect the head to that Node.
+
+### Recursion
+
+#### Print elements of list
+
+``` C++
+void Print(struct Node* n){
+
+  if (n == NULL) return;
+  std::cout << n->data;
+  Print(value->next)
+}
+```
+#### Print elements of list in reverse
+
+``` C++
+void Reverse_Print(struct Node* n){
+
+  if (m == NULL) return;
+  Reverse_Print(n->next);
+  std::cout << n->data;
+}
+```
+
+#### Reverse the linked list
+
+
+``` C++
+void Reverse(struct Node* n){
+
+  if (n->next == NULL){
+    head = n;
+    return;
+  }
+  Reverse(n->next);
+  struct Node * p = n->next;
+  p->next = n;  
+  // or
+  // n->next->next = n;
+  n->next = NULL;
+}
+```
+
