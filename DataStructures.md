@@ -293,4 +293,25 @@ All Constant Time - O(1)
 #### Evaluation of expressions
 
 - There are different type of notations. **infix**, **postfix** and **prefix**.
-- 
+- **Postfix**
+  - Use a stack to store the various operands
+  - When found an operator, perform the operation with the two last elements of the stacks, poping them and then adding the result to the stack
+  - At the end return de top of the stack
+
+- **Prefix**
+  - The same as before but iterating through the expression from right to left
+
+#### Conversions of evaluation type
+
+- **Infix to Postfix**
+  - Operands maintain the same order, only changes the order of operators
+  - Add the operands into the final expression
+  - Only operatos go to stack, if there is already an operator of the same or smaller preference add it to the expression. 
+  - Multiple operators can be added to the expression at once. So, compare the top of stack with the new operator
+  - When reached the end of expression, pop and add the rest of operators still in stack
+
+- **With parenthesis**
+  - Still left to right, store operators and parenthesis
+  - Add the opening parenthesis and a similar thing to the operators
+  - When found an closing parenthsis, pop until find a opening parenthesis inclusive 
+
