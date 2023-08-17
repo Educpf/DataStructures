@@ -264,8 +264,33 @@ All Constant Time - O(1)
 - Balanced Parentheses
 
 
-> ## Implementation
+ ## Implementation
 
-The implementation of stack can be done using an **Array** or **List**
+- The implementation of stack can be done using an **Array** or **List**
 
+- But the implementation of stack can also be done by using  **linked lists**
+  - The top of the stacks needs to be the beggining/head of the linked list, because changing the last element would take O(n) time.
+  - The good thing of using linked lists over arrays is that there is no cap size for the number of elements
 
+## Use cases for stack
+
+#### Reverse a string or a linked list
+
+- Create a stack to store the 
+- Because what comes in first, comes out last, we can then take the characters and putting them in the string again
+- Time complexity: O(n) 
+- Space complexity: O(n)
+- There is a way of doing it without using stacks and no extra memory
+
+- The recursive solution to solve reverse a linked list is called **implicit stack**
+
+#### Check for balanced parentheses
+
+- Use a stack to save the last opened parentheses.
+- Every time a parenthesis is closed, the stack cannot be empty and the top element of the stack should correspond to the parentheses type of the closed. 
+- In the end the stack should be empty
+
+#### Evaluation of expressions
+
+- There are different type of notations. **infix**, **postfix** and **prefix**.
+- 
