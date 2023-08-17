@@ -315,3 +315,32 @@ All Constant Time - O(1)
   - Add the opening parenthesis and a similar thing to the operators
   - When found an closing parenthsis, pop until find a opening parenthesis inclusive 
 
+---
+
+# Queue
+
+> ## ADT
+>
+> A list or collection with the restriction that insertion can be performed at one end and deletion can be performed at other end
+> - FIFO -> first in first out
+> - Rear or tail -> Addition
+> - Front or head -> Removal
+
+### Operation
+
+All constant time O(1)
+
+- EnQueue(x) or Push(x)
+- Dequeue() or Pop() -> also return the removed element
+- front() or Peek()
+- IsEmpty()
+
+### Aplications
+
+- Printer queue
+- Process scheduling 
+- simulating wait
+
+### Implementation 
+
+- **Array** or **Linked List** implementation
