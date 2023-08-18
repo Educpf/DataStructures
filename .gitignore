@@ -1,5 +1,13 @@
 
 
-
-# Files to be ignored by git
-
+# Ignore compiled/executable files
+*
+!/**/
+!*.*
+**/*.exe
+**/*.out
+**/*.o
+**/*.so
+**/*.dylib
+**/*.elf
+!(**/*.*)
