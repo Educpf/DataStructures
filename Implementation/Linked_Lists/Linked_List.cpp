@@ -56,8 +56,29 @@ LinkedList::LinkedList(const LinkedList& linked_list){
     }
 }
 
+// Destructor
+LinkedList::~LinkedList(){
+    Node* node = head;
+    while (node != NULL){
+        Node* next = node->next;
+        delete node;
+        node = next;
+    }
+}
+
+
 
 // Changers
+void LinkedList::Clear(){
+    Node* node = head;
+    while(node != NULL){
+        Node* next = node->next;
+        delete node;
+        node = next;
+    }
+    head = NULL;
+    size = 0;
+}
 bool LinkedList::Insert(size_t idx, int value){
     if (idx < 0 || idx >= size) return false;
     size++;
@@ -100,7 +121,48 @@ bool LinkedList::Delete(size_t idx){
     return true;
 }
 
+int LinkedList::Pop(){
+    Node* node = head;
+    size--;
+    while (node->next->next != NULL){
+        node = node->next;
+    }
+    Node* last = node->next->next;
+    delete last;
+    node->next = NULL;
 
+}
+bool LinkedList::Modification(size_t idx, int value){
+    if (idx < 0 || idx >= size) return false;
+    Node* node = head;
+    for (idx; idx>0; idx--){
+       node = node->next; 
+    }
+    node->data = value;
+    return true;
+}
+
+void LinkedList::Concatonation(const LinkedList& second){
+    Node* node = head;
+    while (node->next != head){
+        node=node->next;
+    }
+    node->next = second.head;
+}
+
+bool LinkedList::Slipt(size_t idx, LinkedList& second){
+    if (idx <= 0 || idx >= size) return false;
+    second.Clear();
+    second.size = size - idx -1;
+    size -= idx+1;
+    Node* node = head;
+    for (idx; idx>1;idx--){
+        node = node->next;
+    }
+    second.head = node->next;
+    node->next = NULL;
+    
+}
 // Accesosrs
 
 int LinkedList::at(size_t idx) const {
@@ -126,11 +188,29 @@ size_t LinkedList::get_size() const {
 // Transformations
 
 void LinkedList::ReverseIt(){
-
+    Node* prev, *current, *next;
+    prev = NULL;
+    current = head;
+    while (current != NULL){
+        next = current->next;
+        current->next = prev;
+        prev = current;
+        current = next;
+    }
+    head = prev;
 }
 
 void LinkedList::ReverseRec(){
+    RecursiveHelp(head);
+}
 
+void LinkedList::RecursiveHelp(Node* n){
+    if (n->next == NULL){
+        head = n;
+        return;
+    }
+    RecursiveHelp(n->next);
+    n->next->next = n;
 }
 
 void LinkedList::Print() const{
