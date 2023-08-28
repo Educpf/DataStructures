@@ -7,13 +7,13 @@
 #include <cstddef>
 #include <iostream>
 
-struct Node {
-    int data;
-    Node* next;
-};
-
-
+template <typename T>
 class LinkedList {
+    private:
+        struct Node {
+            T data;
+            Node* next;
+        };
 
     public:
         // Constructors
@@ -21,7 +21,7 @@ class LinkedList {
             std::cout << "Default initializer\n";
         }
         
-        LinkedList(std::initializer_list<int> list): head(NULL), size(0){
+        LinkedList(std::initializer_list<T> list): head(NULL), size(0){
             std::cout << "Initializer list constructed\n";
             if (list.size() > 0){
                 size = list.size();
@@ -39,7 +39,7 @@ class LinkedList {
             }
         }
         
-        LinkedList(const std::vector<int>& vec): head(NULL), size(0){
+        LinkedList(const std::vector<T>& vec): head(NULL), size(0){
             std::cout << "Vec constructed\n";
             if (vec.size() > 0){
                 size = vec.size();
@@ -57,7 +57,7 @@ class LinkedList {
             }
         }
         
-        LinkedList(const LinkedList& linked_list) : head(NULL), size(0){
+        LinkedList(const LinkedList<T>& linked_list) : head(NULL), size(0){
             std::cout << "Cpy constructor\n";
             if (linked_list.size > 0){
                 size = linked_list.size;
@@ -80,7 +80,6 @@ class LinkedList {
         }
         // Destructor
         ~LinkedList(){
-            Print();
             std::cout << "Destructor called\n";
             Node* node = head;
             while (node != NULL){
@@ -102,7 +101,7 @@ class LinkedList {
             size = 0;
         }
         
-        bool Insert(size_t idx, int value){
+        bool Insert(size_t idx, T value){
             if (idx < 0 || idx > size){
                 std::cout << "Error inserting\n";
                 return false;
@@ -126,7 +125,7 @@ class LinkedList {
             return true;
         }
         
-        void add(int value){
+        void add(T value){
             std::cout << "Added value\n";
             size ++;
             if (head == NULL){
@@ -168,7 +167,7 @@ class LinkedList {
             return true;
         }
         
-        int Pop(){
+        T Pop(){
             if (size == 0){
                 std::cout << "Impossible to pop, empty! \n";
                 return 0;
@@ -187,12 +186,12 @@ class LinkedList {
                 node->next = NULL;
             }
             size--;
-            int ret = last->data;
+            T ret = last->data;
             delete last;
             return ret;
         }
         
-        bool Modification(size_t idx, int value){
+        bool Modification(size_t idx, T value){
             if (idx < 0 || idx >= size){
                 std::cout << "Error: Invalid Index!";
                 return false;
@@ -245,7 +244,7 @@ class LinkedList {
             return true; 
         }
         // Accessors
-        int at(size_t idx) const {
+        T at(size_t idx) const {
             if (idx < 0 || idx >= size) {
                 std::cout << "Invalid number" << std::endl;
                 return 0;
@@ -257,7 +256,7 @@ class LinkedList {
             return node->data;
         }
         
-        int operator [](size_t idx) const {
+        T operator [](size_t idx) const {
             return at(idx);
         }
         
@@ -311,9 +310,6 @@ class LinkedList {
         }
 
 };
-
-
-
 
 
 

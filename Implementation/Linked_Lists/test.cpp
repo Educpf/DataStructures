@@ -8,13 +8,13 @@ int main(){
 
     std::vector<int> vec =  {1, 2, 3, 4};
     std::cout << "Vector created\n";
-    LinkedList obj;
+    LinkedList<int> obj;
     std::cout << "Obj created\n";
-    LinkedList obj_list = {1, 2, 3, 4};
+    LinkedList<int> obj_list = {1, 2, 3, 4};
     std::cout << "ObjList created\n";
-    LinkedList obj_vec(vec);
+    LinkedList<int> obj_vec(vec);
     std::cout << "Objvec created\n";
-    LinkedList obj_cpy(obj);
+    LinkedList<int> obj_cpy(obj);
     std::cout << "Initialization done!\n";
     obj.add(1);
     std::cout << "First addition done!\n";
@@ -29,7 +29,7 @@ int main(){
     obj_vec.Print();
     obj_cpy.Print();
     std::cout << "Print completed\n";
-    LinkedList obj_cpy2 = obj;
+    LinkedList<int> obj_cpy2 = obj;
     obj_cpy2.Print();
     std::cout << "------------\n";
     obj.Clear();
