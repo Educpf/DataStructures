@@ -8,6 +8,60 @@
 #include <iostream>
 
 template <typename T>
+class LinkedList;
+
+template <class linked_list>
+class ListIterator{
+    private:
+
+        using Category = std::forward_iterator_tag;
+        using ValueType = typename linked_list::ValueType;
+        using Distance = std::ptrdiff_t;
+        using Pointer = ValueType*;
+        using Reference = ValueType&;
+
+        using Node_ptr = typename linked_list::Node*;
+
+        
+    public:
+        // Constructors
+        ListIterator():current(nullptr){};
+        ListIterator(const Node_ptr& ptr) : current(ptr){}
+
+    private:
+        Node_ptr current;
+
+    public:
+
+        ListIterator& operator++(){
+            if (current) current = current->next;
+            return *this;
+        }
+
+        ListIterator operator++(int){
+            ListIterator it = *this;
+            ++(*this);
+            return it;
+        }
+
+        bool operator!=(const ListIterator& other) const{
+            return (current != other.current);
+        }
+        bool operator==(const ListIterator& other) const{
+            return (current == other.current);
+        }
+
+        Reference operator*(){
+            if (current) return current->data;
+            throw std::out_of_range("Iterator is out of range.");
+        }
+
+        Pointer operator->(){
+            return &operator*();
+        }
+};
+
+template <typename T>
 class LinkedList {
     private:
         struct Node {
@@ -16,11 +70,18 @@ class LinkedList {
         };
 
     public:
+
+    using ValueType = T;
+    using Iterator = ListIterator<LinkedList<T>>;
+    using Const_Iterator = ListIterator<LinkedList<const T>>;
+    friend class ListIterator<LinkedList<T>>;
+
+    public:
         // Constructors
         LinkedList(): head(NULL), size(0){
             std::cout << "Default initializer\n";
         }
-        
+
         LinkedList(std::initializer_list<T> list): head(NULL), size(0){
             std::cout << "Initializer list constructed\n";
             if (list.size() > 0){
@@ -87,6 +148,19 @@ class LinkedList {
                 delete node;
                 node = next;
             }
+        }
+        // Iterators
+        Iterator begin(){
+            return Iterator(head);
+        }
+        Iterator end(){
+            return Iterator();
+        }
+        Const_Iterator cbegin(){
+            return Const_Iterator(head);
+        }
+        Const_Iterator cend(){
+            return Const_Iterator();
         }
         // Changers
         void Clear(){
