@@ -344,3 +344,8 @@ All constant time O(1)
 ### Implementation 
 
 - **Array** or **Linked List** implementation
+
+- Array:
+    - to improve the space management is a good idea to use circular arrays
+    - Next pos = (i+1)%Numberofelements | Prev pos = (i-1+N)%N -> to insure that is always +
+    - In case of circular: Full when (rear+1)%N == front
