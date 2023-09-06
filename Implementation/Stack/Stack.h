@@ -6,6 +6,7 @@
 #include <initializer_list>
 #include <stdexcept>
 #include <iostream>
+#include <string>
 
 template <typename T>
 class Pure_Stack{
@@ -70,25 +71,6 @@ class Pure_Stack{
         bool empty(){
             return (tam == 0);
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
+        
 };
-
-
-
-
-
-
-
 #endif
