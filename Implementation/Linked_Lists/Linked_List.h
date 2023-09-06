@@ -34,7 +34,7 @@ class LinkedList {
                     folow_node->data = *it;
                     prev_node->next = folow_node;
                     prev_node = folow_node;
-            }
+                }
             prev_node->next = NULL;
             }
         }

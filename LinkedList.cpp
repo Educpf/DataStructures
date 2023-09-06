@@ -12,7 +12,7 @@ class LinkedList {
 public:
     LinkedList();
     LinkedList(int size, T value);
-    LinkedList(std::vector<T>::iterator begin, std::vector<T>::iterator end);
+    LinkedList(typename std::vector<T>::iterator begin, typename std::vector<T>::iterator end);
 
 
 private:
