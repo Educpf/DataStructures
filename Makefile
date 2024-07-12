@@ -13,6 +13,7 @@ CXXFLAGS+= -Wall -Wuninitialized -Werror
 # (for use with a debugger like gdb)
 CXXFLAGS+= -g
 
+
 # Link with math library
 CXXFLAGS+= -lm
 

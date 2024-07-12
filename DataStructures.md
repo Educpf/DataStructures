@@ -349,3 +349,34 @@ All constant time O(1)
     - to improve the space management is a good idea to use circular arrays
     - Next pos = (i+1)%Numberofelements | Prev pos = (i-1+N)%N -> to insure that is always +
     - In case of circular: Full when (rear+1)%N == front
+
+# Tree
+
+## Linear Data Structures
+
+- Arrays / Linked Lists / Stacks / Queue
+- Information is stored in a sequential manner
+- With logical start and logical end
+
+## How to decide ? 
+
+- What needs to be stored
+- Cost of operations (the most used ones)
+- Memory usage
+- Ease of implementation (Not a good strategy ahah)
+
+## Some uses
+
+- Represent Hierarchy 
+
+## ADT
+- Colection of modules (nodes) linked together to simulate **Hierarchy**
+- Non linear data structure
+- Top node is called **root**
+- Each node contains some data and may contain **links** (**arrows**) to another nodes (**children**)
+- **Root** / **parents** -> **children** / **Siblings** (have the same parents)
+- **Leaf** node dont have children, the ones that have are internal nodes
+- Links are one directional
+- If its possible to go from node A to B, then:
+    - B is **descendant** of A
+    - A is **ancestor** of B

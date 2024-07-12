@@ -1,12 +1,10 @@
 
-#include "Linked_List.h"
 #include <vector>
 
+#include "Linked_List.h"
 
-
-int main(){
-
-    std::vector<int> vec =  {1, 2, 3, 4};
+int main() {
+    std::vector<int> vec = {1, 2, 3, 4};
     std::cout << "Vector created\n";
     LinkedList<int> obj;
     std::cout << "Obj created\n";
@@ -69,12 +67,12 @@ int main(){
     obj_cpy2.Print();
     std::cout << "---------------------\n";
     std::cout << obj.at(0) << "\n";
-    std::cout << obj.at(1)<< "\n";
-    std::cout << obj.at(2)<< "\n";
-    std::cout << obj.at(3)<< "\n";
-    std::cout << obj[4]<< "\n";
-    std::cout << obj[5]<< "\n";
-    std::cout << obj[6]<< "\n";
+    std::cout << obj.at(1) << "\n";
+    std::cout << obj.at(2) << "\n";
+    std::cout << obj.at(3) << "\n";
+    std::cout << obj[4] << "\n";
+    std::cout << obj[5] << "\n";
+    std::cout << obj[6] << "\n";
 
     std::cout << "---------------------\n";
     return 0;
